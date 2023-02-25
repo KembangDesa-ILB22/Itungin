@@ -45,6 +45,13 @@ class CategoryViewController: UIViewController {
         view.addSubview(closeButton)
         
         configureConstraints()
+        
+        
+        closeButton.addTarget(self, action: #selector(closeSheet), for: .touchUpInside)
+    }
+    
+    @objc private func closeSheet(){
+        dismiss(animated: true)
     }
     
     private func configureConstraints() {
