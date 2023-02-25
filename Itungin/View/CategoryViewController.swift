@@ -37,16 +37,34 @@ class CategoryViewController: UIViewController {
         return button
     }()
     
+    private let typeSegmentedControl: UISegmentedControl = {
+        let typeItem = ["Income", "Expense"]
+       let segmentedControl = UISegmentedControl(items: typeItem)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.selectedSegmentIndex = 1
+        return segmentedControl
+    }()
+    
+    private let headerLine: UIView = {
+       let uiview = UIView()
+        uiview.translatesAutoresizingMaskIntoConstraints = false
+        uiview.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        uiview.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        
+        return uiview
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
         view.addSubview(titleLabel)
         view.addSubview(closeButton)
+        view.addSubview(headerLine)
+        view.addSubview(typeSegmentedControl)
+        
         
         configureConstraints()
-        
-        
         closeButton.addTarget(self, action: #selector(closeSheet), for: .touchUpInside)
     }
     
@@ -67,7 +85,21 @@ class CategoryViewController: UIViewController {
             closeButton.widthAnchor.constraint(equalToConstant: 24)
         ]
         
+        let headerLineConstraints = [
+            headerLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16)
+        ]
+        
+        let typeSegmentedControlConstraints = [
+            typeSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            typeSegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            typeSegmentedControl.topAnchor.constraint(equalTo: headerLine.bottomAnchor, constant: 8)
+        ]
+        
         NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(closeButtonConstraints)
+        NSLayoutConstraint.activate(headerLineConstraints)
+        NSLayoutConstraint.activate(typeSegmentedControlConstraints)
     }
 }
