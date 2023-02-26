@@ -17,6 +17,9 @@
 		ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */; };
 		ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */; };
 		ACCB5A5A29ABA349005B9B74 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5929ABA349005B9B74 /* UIView+Ext.swift */; };
+		7EA9CC1729A9FA1C00F1FD53 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */; };
+		7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D129AB6CF2002401B5 /* CategoryItem.swift */; };
+		7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		ACCB5A5929ABA349005B9B74 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		7EC357D129AB6CF2002401B5 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,8 @@
 		7E1BBE8D29A25D96002FE941 /* Itungin */ = {
 			isa = PBXGroup;
 			children = (
+				7EC357D029AB6CE3002401B5 /* Model */,
+				7EA9CC1529A9FA0B00F1FD53 /* View */,
 				7E1BBE8E29A25D96002FE941 /* AppDelegate.swift */,
 				7E1BBE9029A25D96002FE941 /* SceneDelegate.swift */,
 				7E1BBE9229A25D96002FE941 /* ViewController.swift */,
@@ -77,6 +85,23 @@
 				ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */,
 			);
 			path = Itungin;
+			sourceTree = "<group>";
+		};
+		7EA9CC1529A9FA0B00F1FD53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */,
+				7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7EC357D029AB6CE3002401B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EC357D129AB6CF2002401B5 /* CategoryItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,13 +175,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACCB5A5A29ABA349005B9B74 /* UIView+Ext.swift in Sources */,
+				7EA9CC1729A9FA1C00F1FD53 /* CategoryViewController.swift in Sources */,
 				7E1BBE9329A25D96002FE941 /* ViewController.swift in Sources */,
 				7E1BBE8F29A25D96002FE941 /* AppDelegate.swift in Sources */,
 				6651471229A39290002122B9 /* OverViewController.swift in Sources */,
+				7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */,
 				7E1BBE9129A25D96002FE941 /* SceneDelegate.swift in Sources */,
 				ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */,
 				ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */,
 				ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */,
+				7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
