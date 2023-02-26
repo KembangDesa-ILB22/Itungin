@@ -32,7 +32,7 @@ class CategoryItemCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Insurance"
-        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.font = .systemFont(ofSize: 15, weight: .medium)
         label.textAlignment = .center
         
         return label
@@ -61,11 +61,12 @@ class CategoryItemCollectionViewCell: UICollectionViewCell {
             imageBgView.bottomAnchor.constraint(equalTo: itemLabel.topAnchor, constant: -8)
         ]
         
+        let paddingImage = contentView.frame.size.width / 6
         let itemImageViewConstraints = [
-            itemImageView.leadingAnchor.constraint(equalTo: imageBgView.leadingAnchor, constant: 10),
-            itemImageView.trailingAnchor.constraint(equalTo: imageBgView.trailingAnchor, constant: -10),
-            itemImageView.topAnchor.constraint(equalTo: imageBgView.topAnchor, constant: 10),
-            itemImageView.bottomAnchor.constraint(equalTo: imageBgView.bottomAnchor, constant: -10)
+            itemImageView.leadingAnchor.constraint(equalTo: imageBgView.leadingAnchor, constant: paddingImage),
+            itemImageView.trailingAnchor.constraint(equalTo: imageBgView.trailingAnchor, constant: -paddingImage),
+            itemImageView.topAnchor.constraint(equalTo: imageBgView.topAnchor, constant: paddingImage),
+            itemImageView.bottomAnchor.constraint(equalTo: imageBgView.bottomAnchor, constant: -paddingImage)
         ]
         
         
