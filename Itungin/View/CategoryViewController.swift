@@ -59,9 +59,10 @@ class CategoryViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 1
-        layout.itemSize = CGSize(width: ((view.frame.size.width) / 4) - 30, height: ((view.frame.size.width) / 4) - 30)
+        layout.itemSize = CGSize(width: ((view.frame.size.width) / 4) - 10, height: (((view.frame.size.width) / 4) - 10) + 28)
         
-       let collectionview = UICollectionView()
+        let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionview.register(CategoryItemCollectionViewCell.self, forCellWithReuseIdentifier: CategoryItemCollectionViewCell.identifier)
         collectionview.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionview
@@ -75,10 +76,14 @@ class CategoryViewController: UIViewController {
         view.addSubview(closeButton)
         view.addSubview(headerLine)
         view.addSubview(typeSegmentedControl)
+        view.addSubview(categoryItemCollectionView)
         
         
         configureConstraints()
         closeButton.addTarget(self, action: #selector(closeSheet), for: .touchUpInside)
+        
+        categoryItemCollectionView.delegate = self
+        categoryItemCollectionView.dataSource = self
     }
     
     @objc private func closeSheet(){
@@ -110,9 +115,32 @@ class CategoryViewController: UIViewController {
             typeSegmentedControl.topAnchor.constraint(equalTo: headerLine.bottomAnchor, constant: 8)
         ]
         
+        let categoryItemCollectionViewConstraints = [
+            categoryItemCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            categoryItemCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            categoryItemCollectionView.topAnchor.constraint(equalTo: typeSegmentedControl.bottomAnchor, constant: 8),
+            categoryItemCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+        
         NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(closeButtonConstraints)
         NSLayoutConstraint.activate(headerLineConstraints)
         NSLayoutConstraint.activate(typeSegmentedControlConstraints)
+        NSLayoutConstraint.activate(categoryItemCollectionViewConstraints)
     }
+}
+
+extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 30
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryItemCollectionViewCell.identifier, for: indexPath) as? CategoryItemCollectionViewCell else { return UICollectionViewCell() }
+        
+        
+        return cell
+    }
+    
+    
 }
