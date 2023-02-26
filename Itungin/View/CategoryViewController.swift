@@ -54,12 +54,18 @@ class CategoryViewController: UIViewController {
         return uiview
     }()
     
-//    private let categoryItemCollectionView: UICollectionView = {
-//       let collectionview = UICollectionView()
-//        collectionview.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        return collectionview
-//    }()
+    private lazy var categoryItemCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 1
+        layout.itemSize = CGSize(width: ((view.frame.size.width) / 4) - 30, height: ((view.frame.size.width) / 4) - 30)
+        
+       let collectionview = UICollectionView()
+        collectionview.translatesAutoresizingMaskIntoConstraints = false
+        
+        return collectionview
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
