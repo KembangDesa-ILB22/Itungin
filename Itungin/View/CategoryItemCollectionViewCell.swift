@@ -31,12 +31,17 @@ class CategoryItemCollectionViewCell: UICollectionViewCell {
     private let itemLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Income"
+        label.text = "Insurance"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         label.textAlignment = .center
         
         return label
     }()
+    
+    func configure(with categoryItemModel: CategoryItem){
+        itemLabel.text = categoryItemModel.name
+        itemImageView.image = UIImage(systemName: categoryItemModel.icon)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

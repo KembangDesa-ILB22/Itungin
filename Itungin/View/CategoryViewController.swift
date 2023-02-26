@@ -9,6 +9,24 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    private var incomeDataItem: [CategoryItem] = [
+        CategoryItem(name: "Gift", color: "red", icon: "gift"),
+        CategoryItem(name: "Investment", color: "blue", icon: "chart.bar.fill"),
+        CategoryItem(name: "Other", color: "brown", icon: "bitcoinsign.circle.fill"),
+        CategoryItem(name: "Insurance", color: "yellow", icon: "rectangle.3.group.fill")
+    ]
+    
+    private var expenseDataItem: [CategoryItem] = [
+        CategoryItem(name: "Gift", color: "red", icon: "gift"),
+        CategoryItem(name: "Investment", color: "blue", icon: "chart.bar.fill"),
+        CategoryItem(name: "Other", color: "brown", icon: "bitcoinsign.circle.fill"),
+        CategoryItem(name: "Insurance", color: "yellow", icon: "rectangle.3.group.fill"),
+        CategoryItem(name: "Gift", color: "red", icon: "gift"),
+        CategoryItem(name: "Investment", color: "blue", icon: "chart.bar.fill"),
+        CategoryItem(name: "Other", color: "brown", icon: "bitcoinsign.circle.fill"),
+        CategoryItem(name: "Insurance", color: "yellow", icon: "rectangle.3.group.fill")
+    ]
+    
     private let titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +99,7 @@ class CategoryViewController: UIViewController {
         
         configureConstraints()
         closeButton.addTarget(self, action: #selector(closeSheet), for: .touchUpInside)
+        typeSegmentedControl.addTarget(self, action: #selector(typeSegmentActionChange), for: .valueChanged)
         
         categoryItemCollectionView.delegate = self
         categoryItemCollectionView.dataSource = self
@@ -88,6 +107,12 @@ class CategoryViewController: UIViewController {
     
     @objc private func closeSheet(){
         dismiss(animated: true)
+    }
+    
+    @objc private func typeSegmentActionChange() {
+        DispatchQueue.main.async {
+            self.categoryItemCollectionView.reloadData()
+        }
     }
     
     private func configureConstraints() {
@@ -132,11 +157,14 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return typeSegmentedControl.selectedSegmentIndex == 0 ? incomeDataItem.count : expenseDataItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryItemCollectionViewCell.identifier, for: indexPath) as? CategoryItemCollectionViewCell else { return UICollectionViewCell() }
+        
+        let categoryItem = typeSegmentedControl.selectedSegmentIndex == 0 ? incomeDataItem[indexPath.item] : expenseDataItem[indexPath.item]
+        cell.configure(with: categoryItem)
         
         
         return cell
