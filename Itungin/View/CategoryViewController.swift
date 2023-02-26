@@ -23,7 +23,7 @@ class CategoryViewController: UIViewController {
         let button = UIButton()
         
         var configuration = UIButton.Configuration.filled()
-        configuration.image = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 10))
+        configuration.image = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 10, weight: .bold))
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         configuration.baseBackgroundColor = .lightGray.withAlphaComponent(0.2)
         configuration.baseForegroundColor = .darkGray
@@ -53,6 +53,13 @@ class CategoryViewController: UIViewController {
         
         return uiview
     }()
+    
+//    private let categoryItemCollectionView: UICollectionView = {
+//       let collectionview = UICollectionView()
+//        collectionview.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        return collectionview
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
