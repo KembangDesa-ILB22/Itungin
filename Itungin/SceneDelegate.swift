@@ -19,8 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+        let viewController = TransactionViewController()
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = .black
+
+        let nav = UINavigationController(rootViewController: viewController)
+        window.rootViewController = nav
         window.makeKeyAndVisible()
-        window.rootViewController = OverViewController()
         
         self.window = window
         
