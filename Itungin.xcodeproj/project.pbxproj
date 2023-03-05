@@ -20,6 +20,7 @@
 		7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */; };
 		7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */; };
 		7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */; };
+		7EE186D829B4CA8500B2C34A /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D729B4CA8500B2C34A /* SelectDateTableViewCell.swift */; };
 		ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5129ABA2DC005B9B74 /* Date+Ext.swift */; };
 		ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */; };
 		ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */; };
@@ -42,6 +43,7 @@
 		7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceTableViewCell.swift; sourceTree = "<group>"; };
 		7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledTableViewCell.swift; sourceTree = "<group>"; };
+		7EE186D729B4CA8500B2C34A /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
 		ACCB5A5129ABA2DC005B9B74 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */,
 				7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */,
 				7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */,
+				7EE186D729B4CA8500B2C34A /* SelectDateTableViewCell.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				7E1BBE9129A25D96002FE941 /* SceneDelegate.swift in Sources */,
 				7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */,
 				ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */,
+				7EE186D829B4CA8500B2C34A /* SelectDateTableViewCell.swift in Sources */,
 				7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */,
 				ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */,
 				7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */,

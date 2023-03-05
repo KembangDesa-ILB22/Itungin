@@ -72,7 +72,7 @@ extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
         switch(indexPath.row) {
         case 0: return self.categoryTableViewCell
         case 1: return self.amountTableViewCell
-        case 2: return self.notesTableViewCell
+        case 2: return SelectDateTableViewCell()
             default: return UITableViewCell()
         }
     }
