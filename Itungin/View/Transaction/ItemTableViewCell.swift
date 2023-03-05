@@ -76,7 +76,7 @@ class ItemTableViewCell: UITableViewCell {
         itemLabel.text = "Sunscreen"
         dateLabel.text = Date().dateToString()
         totalLabel.text = "- IDR 170.000"
-    }
+    } 
 }
 
 extension ItemTableViewCell {
