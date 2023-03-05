@@ -88,8 +88,23 @@ class AddTransactionViewController: UIViewController {
         view.addSubview(formTableView)
         formTableView.dataSource = self
         formTableView.delegate = self
-     
+        
+        categoryTableViewCell.buttonChev.addTarget(self, action: #selector(didSelectCategory), for: .touchUpInside)
+        
+        let actionCategory = UITapGestureRecognizer(target: self, action: #selector(didSelectCategory))
+        categoryTableViewCell.selectedLabel.addGestureRecognizer(actionCategory)
+        categoryTableViewCell.selectedLabel.isUserInteractionEnabled = true
+        
         configureConstraints()
+    }
+    
+    @objc private func didSelectCategory(){
+//        print("clicked")
+        let categoryControllerSheet = CategoryViewController()
+        if let presentationController = categoryControllerSheet.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+        present(categoryControllerSheet, animated: true)
     }
     
     private func configureConstraints(){
@@ -97,7 +112,6 @@ class AddTransactionViewController: UIViewController {
         let backButtonConstraints = [
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-//            backButton.heightAnchor.constraint(equalToConstant: 60)
         ]
         
         let saveButtonConstraints = [

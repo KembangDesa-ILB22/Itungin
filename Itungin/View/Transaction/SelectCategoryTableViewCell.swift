@@ -9,7 +9,7 @@ import UIKit
 
 class SelectCategoryTableViewCell: UITableViewCell {
     
-    private var titleLabel: UILabel = {
+    var titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Category"
@@ -17,7 +17,7 @@ class SelectCategoryTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var selectedLabel: UILabel = {
+    var selectedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Select Category"
@@ -26,7 +26,7 @@ class SelectCategoryTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var buttonChev: UIButton = {
+    var buttonChev: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
