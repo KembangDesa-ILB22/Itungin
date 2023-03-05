@@ -9,7 +9,7 @@ import UIKit
 
 class RecurrenceTableViewCell: UITableViewCell {
     
-    private var titleLabel: UILabel = {
+    var titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Category"
@@ -17,7 +17,7 @@ class RecurrenceTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var recurrSwitch: UISwitch = {
+    var recurrSwitch: UISwitch = {
         let uiswitch = UISwitch()
         uiswitch.translatesAutoresizingMaskIntoConstraints = false
         

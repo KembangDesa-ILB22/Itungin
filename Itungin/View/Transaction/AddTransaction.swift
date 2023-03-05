@@ -28,6 +28,12 @@ class AddTransaction: UIViewController {
         return cell
     }()
     
+    private lazy var dateTableViewCell: SelectDateTableViewCell = {
+       let cell = SelectDateTableViewCell()
+        cell.titleLabel.text = "Date"
+        return cell
+    }()
+    
     private lazy var amountTableViewCell: FilledTableViewCell = {
        let cell = FilledTableViewCell()
         cell.titleLabel.text = "Amount"
@@ -36,6 +42,12 @@ class AddTransaction: UIViewController {
         return cell
     }()
     
+    private lazy var recurrTableViewCell: RecurrenceTableViewCell = {
+        let cell = RecurrenceTableViewCell()
+        cell.titleLabel.text = "Recurrence"
+        
+        return cell
+    }()
     
     
     override func viewDidLoad() {
@@ -64,7 +76,7 @@ class AddTransaction: UIViewController {
 
 extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,8 +84,10 @@ extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
         switch(indexPath.row) {
         case 0: return self.categoryTableViewCell
         case 1: return self.amountTableViewCell
-        case 2: return SelectDateTableViewCell()
-            default: return UITableViewCell()
+        case 2: return self.dateTableViewCell
+        case 3: return self.notesTableViewCell
+        case 4: return self.recurrTableViewCell
+        default: return UITableViewCell()
         }
     }
     
