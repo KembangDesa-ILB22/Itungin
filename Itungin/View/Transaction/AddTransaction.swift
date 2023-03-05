@@ -65,7 +65,7 @@ extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch(indexPath.row) {
-            case 0: return self.amountCell
+            case 0: return SelectItemCell()
             case 1: return self.notesCell
             default: return UITableViewCell()
         }
