@@ -44,7 +44,7 @@ class ViewController: UIViewController {
 //        }
 //        present(categoryControllerSheet, animated: true)
         
-        let addTransaction = UINavigationController(rootViewController: AddTransactionViewController())
+        let addTransaction = AddTransactionViewController()
         present(addTransaction, animated: true)
         
     }

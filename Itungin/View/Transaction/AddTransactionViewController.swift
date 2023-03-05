@@ -62,19 +62,29 @@ class AddTransactionViewController: UIViewController {
         return label
     }()
     
-    private lazy var saveLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Save"
-        
-        return label
+    private lazy var saveButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Save", for: .normal)
+        return button
+    }()
+    
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Cancel", for: .normal)
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemBackground
         
+        view.addSubview(backButton)
+        view.addSubview(saveButton)
+        view.addSubview(titleLabel)
         view.addSubview(formTableView)
         formTableView.dataSource = self
         formTableView.delegate = self
@@ -83,14 +93,34 @@ class AddTransactionViewController: UIViewController {
     }
     
     private func configureConstraints(){
+        
+        let backButtonConstraints = [
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+//            backButton.heightAnchor.constraint(equalToConstant: 60)
+        ]
+        
+        let saveButtonConstraints = [
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            saveButton.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
+        ]
+        
+        let titleLabelConstraints = [
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
+        ]
+        
         let formTableViewConstraints = [
             formTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             formTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            formTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            formTableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8),
             formTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ]
         
         NSLayoutConstraint.activate(formTableViewConstraints)
+        NSLayoutConstraint.activate(backButtonConstraints)
+        NSLayoutConstraint.activate(saveButtonConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints)
     }
 }
 
