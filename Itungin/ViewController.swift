@@ -38,11 +38,14 @@ class ViewController: UIViewController {
     @objc private func showCategorySheet(){
         print("clicked")
         
-        let categoryControllerSheet = CategoryViewController()
-        if let presentationController = categoryControllerSheet.presentationController as? UISheetPresentationController {
-            presentationController.detents = [.medium()]
-        }
-        present(categoryControllerSheet, animated: true)
+//        let categoryControllerSheet = CategoryViewController()
+//        if let presentationController = categoryControllerSheet.presentationController as? UISheetPresentationController {
+//            presentationController.detents = [.medium()]
+//        }
+//        present(categoryControllerSheet, animated: true)
+        
+        let addTransaction = UINavigationController(rootViewController: AddTransactionViewController())
+        present(addTransaction, animated: true)
         
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddTransaction: UIViewController {
+class AddTransactionViewController: UIViewController {
     
     private let formTableView: UITableView = {
        let tableview = UITableView()
@@ -17,6 +17,7 @@ class AddTransaction: UIViewController {
     
     private lazy var categoryTableViewCell: SelectCategoryTableViewCell = {
        let cell = SelectCategoryTableViewCell()
+        cell.selectionStyle = .none
         return cell
     }()
     
@@ -25,12 +26,14 @@ class AddTransaction: UIViewController {
         cell.titleLabel.text = "Notes"
         cell.fillTextField.placeholder = "Enter Notes"
         cell.fillTextField.keyboardType = .default
+        cell.selectionStyle = .none
         return cell
     }()
     
     private lazy var dateTableViewCell: SelectDateTableViewCell = {
        let cell = SelectDateTableViewCell()
         cell.titleLabel.text = "Date"
+        cell.selectionStyle = .none
         return cell
     }()
     
@@ -39,16 +42,33 @@ class AddTransaction: UIViewController {
         cell.titleLabel.text = "Amount"
         cell.fillTextField.placeholder = "100000"
         cell.fillTextField.keyboardType = .numberPad
+        cell.selectionStyle = .none
         return cell
     }()
     
     private lazy var recurrTableViewCell: RecurrenceTableViewCell = {
         let cell = RecurrenceTableViewCell()
         cell.titleLabel.text = "Recurrence"
+        cell.selectionStyle = .none
         
         return cell
     }()
     
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Add Transaction"
+        
+        return label
+    }()
+    
+    private lazy var saveLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Save"
+        
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +94,7 @@ class AddTransaction: UIViewController {
     }
 }
 
-extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
+extension AddTransactionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5
     }

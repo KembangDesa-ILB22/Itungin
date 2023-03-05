@@ -16,7 +16,7 @@
 		7EA9CC1729A9FA1C00F1FD53 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */; };
 		7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D129AB6CF2002401B5 /* CategoryItem.swift */; };
 		7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */; };
-		7EE186CE29B4961100B2C34A /* AddTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186CD29B4961100B2C34A /* AddTransaction.swift */; };
+		7EE186CE29B4961100B2C34A /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */; };
 		7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */; };
 		7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */; };
 		7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */; };
@@ -39,7 +39,7 @@
 		7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		7EC357D129AB6CF2002401B5 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		7EE186CD29B4961100B2C34A /* AddTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransaction.swift; sourceTree = "<group>"; };
+		7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceTableViewCell.swift; sourceTree = "<group>"; };
 		7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledTableViewCell.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		7EE186D029B4B54A00B2C34A /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
-				7EE186CD29B4961100B2C34A /* AddTransaction.swift */,
+				7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */,
 				7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */,
 				7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */,
 				7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */,
@@ -219,7 +219,7 @@
 				ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */,
 				7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */,
 				ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */,
-				7EE186CE29B4961100B2C34A /* AddTransaction.swift in Sources */,
+				7EE186CE29B4961100B2C34A /* AddTransactionViewController.swift in Sources */,
 				7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
