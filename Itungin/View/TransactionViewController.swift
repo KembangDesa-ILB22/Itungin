@@ -20,6 +20,7 @@ class TransactionViewController: UIViewController {
     var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.backgroundColor = .secondarySystemBackground
+        table.separatorColor = .clear
         table.register(ItemTableViewCell.self, forCellReuseIdentifier: ItemTableViewCell.id)
         return table
     }()
@@ -30,8 +31,31 @@ class TransactionViewController: UIViewController {
         title = "My Transaction"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
         
         setupView()
+    }
+
+    @objc func addTapped() {
+        let ac = UIAlertController(title: "Input Transaction", message: "Select any of the options below to proceed", preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Scan Receipt", style: .default, handler: openScanReceipt))
+        ac.addAction(UIAlertAction(title: "Speech", style: .default, handler: openSpeech))
+        ac.addAction(UIAlertAction(title: "Manual", style: .default, handler: openManual))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        present(ac, animated: true)
+    }
+
+    func openScanReceipt(action: UIAlertAction) {
+        navigationController?.pushViewController(DummyViewController(), animated: true)
+    }
+
+    func openSpeech(action: UIAlertAction) {
+        navigationController?.pushViewController(SpeechViewController(), animated: true)
+    }
+
+    func openManual(action: UIAlertAction) {
+        navigationController?.pushViewController(DummyViewController(), animated: true)
     }
 }
 
@@ -52,6 +76,10 @@ extension TransactionViewController: UITableViewDataSource, UITableViewDelegate 
         cell?.configure()
 
         return cell ?? UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(DummyViewController(), animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
