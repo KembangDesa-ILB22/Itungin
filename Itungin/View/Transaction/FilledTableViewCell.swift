@@ -9,7 +9,7 @@ import UIKit
 
 class FilledTableViewCell: UITableViewCell {
 
-    private var titleLabel: UILabel = {
+    var titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Amount"
@@ -17,7 +17,7 @@ class FilledTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var fillTextField: UITextField = {
+    var fillTextField: UITextField = {
        let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.placeholder = "Enter Amount"

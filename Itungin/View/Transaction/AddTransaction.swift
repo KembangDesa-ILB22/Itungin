@@ -15,11 +15,27 @@ class AddTransaction: UIViewController {
         return tableview
     }()
     
-    private var amountCell: UITableViewCell = UITableViewCell()
-    private var notesCell: UITableViewCell = UITableViewCell()
+    private lazy var categoryTableViewCell: SelectCategoryTableViewCell = {
+       let cell = SelectCategoryTableViewCell()
+        return cell
+    }()
     
-    private var amountTextField: UITextField = UITextField()
-    private var notesTextField: UITextField = UITextField()
+    private lazy var notesTableViewCell: FilledTableViewCell = {
+       let cell = FilledTableViewCell()
+        cell.titleLabel.text = "Notes"
+        cell.fillTextField.placeholder = "Enter Notes"
+        cell.fillTextField.keyboardType = .default
+        return cell
+    }()
+    
+    private lazy var amountTableViewCell: FilledTableViewCell = {
+       let cell = FilledTableViewCell()
+        cell.titleLabel.text = "Amount"
+        cell.fillTextField.placeholder = "100000"
+        cell.fillTextField.keyboardType = .numberPad
+        return cell
+    }()
+    
     
     
     override func viewDidLoad() {
@@ -30,17 +46,6 @@ class AddTransaction: UIViewController {
         view.addSubview(formTableView)
         formTableView.dataSource = self
         formTableView.delegate = self
-        
-//        self.amountCell.backgroundColor = .red
-        self.amountTextField = UITextField(frame: CGRectInset(self.amountCell.contentView.bounds, 15, 0))
-        self.amountCell.textLabel?.text = "Rivaldo"
-        self.amountTextField.placeholder = "Amount"
-        self.amountCell.addSubview(self.amountTextField)
-        
-//        self.notesCell.backgroundColor = .blue
-        self.notesTextField = UITextField(frame: CGRectInset(self.notesCell.contentView.bounds, 15, 0))
-        self.notesTextField.placeholder = "Notes"
-        self.notesCell.addSubview(self.notesTextField)
      
         configureConstraints()
     }
@@ -65,9 +70,9 @@ extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch(indexPath.row) {
-            case 0: return SelectCategoryTableViewCell()
-            case 1: return RecurrenceTableViewCell()
-            case 2: return FilledTableViewCell()
+        case 0: return self.categoryTableViewCell
+        case 1: return self.amountTableViewCell
+        case 2: return self.notesTableViewCell
             default: return UITableViewCell()
         }
     }
