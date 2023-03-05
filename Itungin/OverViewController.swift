@@ -177,7 +177,7 @@ class OverViewController: UIViewController {
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.layer.cornerRadius = 10
             
-            //        tableView.register(<#T##nib: UINib?##UINib?#>, forCellReuseIdentifier: "")
+        tableView.register(CategoryItemCollectionViewCell.self, forCellReuseIdentifier: "CategoryItemCollectionViewCell")
             
             NSLayoutConstraint.activate([
                 tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

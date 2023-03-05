@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6651471229A39290002122B9 /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651471129A39290002122B9 /* OverViewController.swift */; };
+		665F362629B4A7FC00F7D013 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665F362429B4A7FC00F7D013 /* OnboardingViewController.swift */; };
+		665F362729B4A7FC00F7D013 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665F362529B4A7FC00F7D013 /* OnboardingViewController.xib */; };
+		665F363129B4AF1600F7D013 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665F362F29B4AF1600F7D013 /* CollectionViewCell.swift */; };
+		665F363229B4AF1600F7D013 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665F363029B4AF1600F7D013 /* CollectionViewCell.xib */; };
 		7E1BBE8F29A25D96002FE941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBE8E29A25D96002FE941 /* AppDelegate.swift */; };
 		7E1BBE9129A25D96002FE941 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBE9029A25D96002FE941 /* SceneDelegate.swift */; };
 		7E1BBE9329A25D96002FE941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBE9229A25D96002FE941 /* ViewController.swift */; };
@@ -26,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		6651471129A39290002122B9 /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
+		665F362429B4A7FC00F7D013 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		665F362529B4A7FC00F7D013 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		665F362F29B4AF1600F7D013 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		665F363029B4AF1600F7D013 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		7E1BBE8B29A25D96002FE941 /* Itungin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itungin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1BBE8E29A25D96002FE941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E1BBE9029A25D96002FE941 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		665F362329B4A7B700F7D013 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				665F362E29B4AEC600F7D013 /* Cell */,
+				665F362429B4A7FC00F7D013 /* OnboardingViewController.swift */,
+				665F362529B4A7FC00F7D013 /* OnboardingViewController.xib */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		665F362E29B4AEC600F7D013 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				665F362F29B4AF1600F7D013 /* CollectionViewCell.swift */,
+				665F363029B4AF1600F7D013 /* CollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7E1BBE8229A25D96002FE941 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +101,7 @@
 		7E1BBE8D29A25D96002FE941 /* Itungin */ = {
 			isa = PBXGroup;
 			children = (
+				665F362329B4A7B700F7D013 /* OnBoarding */,
 				7EC357D029AB6CE3002401B5 /* Model */,
 				7EA9CC1529A9FA0B00F1FD53 /* View */,
 				ACA201D929B46D810039687C /* Extension */,
@@ -186,6 +214,8 @@
 			files = (
 				7E1BBE9B29A25D98002FE941 /* LaunchScreen.storyboard in Resources */,
 				7E1BBE9829A25D98002FE941 /* Assets.xcassets in Resources */,
+				665F363229B4AF1600F7D013 /* CollectionViewCell.xib in Resources */,
+				665F362729B4A7FC00F7D013 /* OnboardingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,11 +230,13 @@
 				ACCB5A5A29ABA349005B9B74 /* UIView+Ext.swift in Sources */,
 				7EA9CC1729A9FA1C00F1FD53 /* CategoryViewController.swift in Sources */,
 				7E1BBE9329A25D96002FE941 /* ViewController.swift in Sources */,
+				665F363129B4AF1600F7D013 /* CollectionViewCell.swift in Sources */,
 				7E1BBE8F29A25D96002FE941 /* AppDelegate.swift in Sources */,
 				6651471229A39290002122B9 /* OverViewController.swift in Sources */,
 				7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */,
 				7E1BBE9129A25D96002FE941 /* SceneDelegate.swift in Sources */,
 				ACA201DB29B4739C0039687C /* DummyViewController.swift in Sources */,
+				665F362629B4A7FC00F7D013 /* OnboardingViewController.swift in Sources */,
 				ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */,
 				ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */,
 				ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */,
