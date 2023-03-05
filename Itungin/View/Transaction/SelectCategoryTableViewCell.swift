@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectItemCell: UITableViewCell {
+class SelectCategoryTableViewCell: UITableViewCell {
     
     private var titleLabel: UILabel = {
        let label = UILabel()

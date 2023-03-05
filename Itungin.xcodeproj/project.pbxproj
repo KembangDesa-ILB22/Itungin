@@ -17,7 +17,9 @@
 		7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D129AB6CF2002401B5 /* CategoryItem.swift */; };
 		7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */; };
 		7EE186CE29B4961100B2C34A /* AddTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186CD29B4961100B2C34A /* AddTransaction.swift */; };
-		7EE186D229B4B5A900B2C34A /* SelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D129B4B5A900B2C34A /* SelectItemCell.swift */; };
+		7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */; };
+		7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */; };
+		7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */; };
 		ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5129ABA2DC005B9B74 /* Date+Ext.swift */; };
 		ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */; };
 		ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */; };
@@ -37,7 +39,9 @@
 		7EC357D129AB6CF2002401B5 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7EE186CD29B4961100B2C34A /* AddTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransaction.swift; sourceTree = "<group>"; };
-		7EE186D129B4B5A900B2C34A /* SelectItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemCell.swift; sourceTree = "<group>"; };
+		7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceTableViewCell.swift; sourceTree = "<group>"; };
+		7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledTableViewCell.swift; sourceTree = "<group>"; };
 		ACCB5A5129ABA2DC005B9B74 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				7EE186CD29B4961100B2C34A /* AddTransaction.swift */,
-				7EE186D129B4B5A900B2C34A /* SelectItemCell.swift */,
+				7EE186D129B4B5A900B2C34A /* SelectCategoryTableViewCell.swift */,
+				7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */,
+				7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -203,9 +209,11 @@
 				6651471229A39290002122B9 /* OverViewController.swift in Sources */,
 				7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */,
 				7E1BBE9129A25D96002FE941 /* SceneDelegate.swift in Sources */,
+				7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */,
 				ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */,
+				7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */,
 				ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */,
-				7EE186D229B4B5A900B2C34A /* SelectItemCell.swift in Sources */,
+				7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */,
 				ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */,
 				7EE186CE29B4961100B2C34A /* AddTransaction.swift in Sources */,
 				7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */,

@@ -59,14 +59,15 @@ class AddTransaction: UIViewController {
 
 extension AddTransaction: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch(indexPath.row) {
-            case 0: return SelectItemCell()
-            case 1: return self.notesCell
+            case 0: return SelectCategoryTableViewCell()
+            case 1: return RecurrenceTableViewCell()
+            case 2: return FilledTableViewCell()
             default: return UITableViewCell()
         }
     }
