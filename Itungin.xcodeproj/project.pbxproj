@@ -18,6 +18,7 @@
 		7E1BBE9829A25D98002FE941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1BBE9729A25D98002FE941 /* Assets.xcassets */; };
 		7E1BBE9B29A25D98002FE941 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1BBE9929A25D98002FE941 /* LaunchScreen.storyboard */; };
 		7EA9CC1729A9FA1C00F1FD53 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */; };
+		7EBC085529B631F200EEE1FB /* TransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBC085429B631F200EEE1FB /* TransactionEntity.swift */; };
 		7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D129AB6CF2002401B5 /* CategoryItem.swift */; };
 		7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */; };
 		7EE186CE29B4961100B2C34A /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */; };
@@ -49,6 +50,7 @@
 		7E1BBE9A29A25D98002FE941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E1BBE9C29A25D98002FE941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		7EBC085429B631F200EEE1FB /* TransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntity.swift; sourceTree = "<group>"; };
 		7EC357D129AB6CF2002401B5 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 				57248F1961C411C686F70E93 /* Pods-Itungin.debug.xcconfig */,
 				C3115DA51E87CE4364A2A535 /* Pods-Itungin.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -167,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				7EC357D129AB6CF2002401B5 /* CategoryItem.swift */,
+				7EBC085429B631F200EEE1FB /* TransactionEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +330,7 @@
 				ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */,
 				7EE186D229B4B5A900B2C34A /* SelectCategoryTableViewCell.swift in Sources */,
 				ACCB5A5829ABA2DD005B9B74 /* TransactionViewController.swift in Sources */,
+				7EBC085529B631F200EEE1FB /* TransactionEntity.swift in Sources */,
 				7EE186CE29B4961100B2C34A /* AddTransactionViewController.swift in Sources */,
 				7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */,
 			);
