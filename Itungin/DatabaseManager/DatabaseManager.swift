@@ -12,16 +12,18 @@ import RealmSwift
 class DatabaseManager {
     static let shared = DatabaseManager()
     
-    func saveTransaction(){
+    func saveTransaction(amount: Double, category: String, recurrence: Bool, notes: String, transaction_date: Date){
+        
+        
         let realm = try! Realm()
         // Prepare to handle exceptions.
         let transaction = TransactionEntity()
         transaction._id = UUID().uuidString
-        transaction.amount = 10000
-        transaction.category = "Belanja"
-        transaction.recurrence = true
-        transaction.notes = "Ini test save data pake realm"
-        transaction.transaction_date = Date()
+        transaction.amount = amount
+        transaction.category = category
+        transaction.recurrence = recurrence
+        transaction.notes = notes
+        transaction.transaction_date = transaction_date
         
         do {
             // Open a thread-safe transaction.
@@ -33,12 +35,12 @@ class DatabaseManager {
         }
     }
     
-    func readTransaction(){
+    func readTransaction() -> [TransactionEntity]{
         let realm = try! Realm()
         
         let datatransaction = realm.objects(TransactionEntity.self)
         
-        print(datatransaction)
+        return datatransaction.map { $0 }
     }
 }
 

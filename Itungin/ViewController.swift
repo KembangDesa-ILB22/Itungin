@@ -30,9 +30,6 @@ class ViewController: UIViewController {
         
         configureConstraints()
         
-        let dbManager = DatabaseManager.shared
-        dbManager.saveTransaction()
-        dbManager.readTransaction()
     }
     
     override func viewDidLayoutSubviews() {
