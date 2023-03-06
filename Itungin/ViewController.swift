@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         categoryButton.addTarget(self, action: #selector(showCategorySheet), for: .touchUpInside)
         
         configureConstraints()
+        
+        let dbManager = DatabaseManager.shared
+        dbManager.saveTransaction()
+        dbManager.readTransaction()
     }
     
     override func viewDidLayoutSubviews() {

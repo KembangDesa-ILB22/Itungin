@@ -19,6 +19,7 @@
 		7E1BBE9B29A25D98002FE941 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1BBE9929A25D98002FE941 /* LaunchScreen.storyboard */; };
 		7EA9CC1729A9FA1C00F1FD53 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */; };
 		7EBC085529B631F200EEE1FB /* TransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBC085429B631F200EEE1FB /* TransactionEntity.swift */; };
+		7EBC085829B6339600EEE1FB /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBC085729B6339600EEE1FB /* DatabaseManager.swift */; };
 		7EC357D229AB6CF2002401B5 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D129AB6CF2002401B5 /* CategoryItem.swift */; };
 		7EC357D429AB6E19002401B5 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */; };
 		7EE186CE29B4961100B2C34A /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */; };
@@ -51,6 +52,7 @@
 		7E1BBE9C29A25D98002FE941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EA9CC1629A9FA1C00F1FD53 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		7EBC085429B631F200EEE1FB /* TransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntity.swift; sourceTree = "<group>"; };
+		7EBC085729B6339600EEE1FB /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7EC357D129AB6CF2002401B5 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		7EC357D329AB6E19002401B5 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7EE186CD29B4961100B2C34A /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		7E1BBE8D29A25D96002FE941 /* Itungin */ = {
 			isa = PBXGroup;
 			children = (
+				7EBC085629B6338700EEE1FB /* DatabaseManager */,
 				665F362329B4A7B700F7D013 /* OnBoarding */,
 				7EC357D029AB6CE3002401B5 /* Model */,
 				7EA9CC1529A9FA0B00F1FD53 /* View */,
@@ -162,6 +165,14 @@
 				ACA201DC29B478410039687C /* SpeechViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7EBC085629B6338700EEE1FB /* DatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				7EBC085729B6339600EEE1FB /* DatabaseManager.swift */,
+			);
+			path = DatabaseManager;
 			sourceTree = "<group>";
 		};
 		7EC357D029AB6CE3002401B5 /* Model */ = {
@@ -324,6 +335,7 @@
 				ACA201DB29B4739C0039687C /* DummyViewController.swift in Sources */,
 				665F362629B4A7FC00F7D013 /* OnboardingViewController.swift in Sources */,
 				7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */,
+				7EBC085829B6339600EEE1FB /* DatabaseManager.swift in Sources */,
 				ACCB5A5729ABA2DD005B9B74 /* ItemTableViewCell.swift in Sources */,
 				7EE186D829B4CA8500B2C34A /* SelectDateTableViewCell.swift in Sources */,
 				7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */,
