@@ -77,6 +77,29 @@ class AddTransactionViewController: UIViewController {
         return button
     }()
     
+    private lazy var datePicker: UIDatePicker = {
+       let datePicker = UIDatePicker()
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+                
+        return datePicker
+    }()
+    
+    private lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return blurEffectView
+    }()
+    
+    
+    private var category: String = ""
+    private var amount: Double = 0
+    private var date: Date?
+    private var notes: String = ""
+    private var recurrence: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +109,12 @@ class AddTransactionViewController: UIViewController {
         view.addSubview(saveButton)
         view.addSubview(titleLabel)
         view.addSubview(formTableView)
+        view.addSubview(blurEffectView)
+        view.addSubview(datePicker)
+        
+        blurEffectView.isHidden = true
+        datePicker.isHidden = true
+        
         formTableView.dataSource = self
         formTableView.delegate = self
         
@@ -95,7 +124,62 @@ class AddTransactionViewController: UIViewController {
         categoryTableViewCell.selectedLabel.addGestureRecognizer(actionCategory)
         categoryTableViewCell.selectedLabel.isUserInteractionEnabled = true
         
+        
+        amountTableViewCell.fillTextField.addTarget(self, action: #selector(didAmountChange), for: .editingChanged)
+        
+        notesTableViewCell.fillTextField.addTarget(self, action: #selector(didNotesChange), for: .editingChanged)
+        
+        recurrTableViewCell.recurrSwitch.addTarget(self, action: #selector(didRecurrenceChange), for: .valueChanged)
+        
+        dateTableViewCell.buttonDate.addTarget(self, action: #selector(selectDatePicker), for: .touchUpInside)
+        
+        datePicker.addTarget(self, action: #selector(didDateChanged), for: .valueChanged)
+        
+        saveButton.addTarget(self, action: #selector(saveTransaction), for: .touchUpInside)
+        
         configureConstraints()
+    }
+    
+    @objc private func saveTransaction() {
+        let dbManager = DatabaseManager.shared
+        
+        guard let date = self.date, let recurrence = self.recurrence else { return }
+        
+        dbManager.saveTransaction(
+            amount: self.amount,
+            category: self.category,
+            recurrence: recurrence,
+            notes: self.notes,
+            transaction_date: date)
+        
+        dismiss(animated: true)
+    }
+    
+    @objc private func didDateChanged() {
+        print(datePicker.date)
+        self.date = datePicker.date
+        self.datePicker.isHidden = true
+        self.blurEffectView.isHidden = true
+    }
+    
+    @objc private func selectDatePicker(){
+        self.datePicker.isHidden = false
+        self.blurEffectView.isHidden = false
+    }
+    
+    @objc private func didRecurrenceChange(){
+        self.recurrence = recurrTableViewCell.recurrSwitch.isOn
+        print(recurrTableViewCell.recurrSwitch.isOn)
+    }
+    
+    @objc private func didNotesChange(){
+        self.notes = notesTableViewCell.fillTextField.text ?? ""
+        print(notesTableViewCell.fillTextField.text)
+    }
+    
+    @objc private func didAmountChange(){
+        self.amount = Double(amountTableViewCell.fillTextField.text ?? "0") ?? 0
+        print(amountTableViewCell.fillTextField.text)
     }
     
     @objc private func didSelectCategory(){
@@ -131,10 +215,24 @@ class AddTransactionViewController: UIViewController {
             formTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ]
         
+        let datePickerConstrains = [
+            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
+        
+        let blurEffectViewConstraints = [
+            blurEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            blurEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            blurEffectView.topAnchor.constraint(equalTo: view.topAnchor),
+            blurEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+        
         NSLayoutConstraint.activate(formTableViewConstraints)
         NSLayoutConstraint.activate(backButtonConstraints)
         NSLayoutConstraint.activate(saveButtonConstraints)
         NSLayoutConstraint.activate(titleLabelConstraints)
+        NSLayoutConstraint.activate(datePickerConstrains)
+        NSLayoutConstraint.activate(blurEffectViewConstraints)
     }
 }
 

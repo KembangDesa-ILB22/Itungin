@@ -16,6 +16,14 @@ class ViewController: UIViewController {
         return button
     }()
     
+    private let readDataButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Read Data", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     private let testView = UIButton()
     
     override func viewDidLoad() {
@@ -25,11 +33,29 @@ class ViewController: UIViewController {
         
         view.addSubview(categoryButton)
         view.addSubview(testView)
+        view.addSubview(readDataButton)
         
         categoryButton.addTarget(self, action: #selector(showCategorySheet), for: .touchUpInside)
         
+        readDataButton.addTarget(self, action: #selector(readDataTransaction), for: .touchUpInside)
+        
         configureConstraints()
         
+    }
+    
+    @objc private func readDataTransaction(){
+        let dbManager = DatabaseManager.shared
+        
+        let transaction = dbManager.readTransaction()
+        
+        transaction.forEach { value in
+            print("-----------------")
+            print(value.notes)
+            print(value.amount)
+            print(value.recurrence)
+            print(value._id)
+            print(value.transaction_date)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,13 +76,20 @@ class ViewController: UIViewController {
         
     }
     
+    
     private func configureConstraints(){
         let categoryButtonConstraints = [
             categoryButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             categoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         
+        let readDataButtonConstraints = [
+            readDataButton.topAnchor.constraint(equalTo: categoryButton.bottomAnchor, constant: 8),
+            readDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
+        
         NSLayoutConstraint.activate(categoryButtonConstraints)
+        NSLayoutConstraint.activate(readDataButtonConstraints)
     }
 
 
