@@ -25,6 +25,7 @@
 		7EE186D429B4BE1800B2C34A /* RecurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */; };
 		7EE186D629B4C11100B2C34A /* FilledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */; };
 		7EE186D829B4CA8500B2C34A /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE186D729B4CA8500B2C34A /* SelectDateTableViewCell.swift */; };
+		926B1200E289E5505E7FE162 /* Pods_Itungin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9C483785EA2173AF880AAD /* Pods_Itungin.framework */; };
 		ACA201DB29B4739C0039687C /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA201DA29B4739C0039687C /* DummyViewController.swift */; };
 		ACA201DD29B478410039687C /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA201DC29B478410039687C /* SpeechViewController.swift */; };
 		ACCB5A5529ABA2DD005B9B74 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB5A5129ABA2DC005B9B74 /* Date+Ext.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57248F1961C411C686F70E93 /* Pods-Itungin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itungin.debug.xcconfig"; path = "Target Support Files/Pods-Itungin/Pods-Itungin.debug.xcconfig"; sourceTree = "<group>"; };
 		6651471129A39290002122B9 /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
 		665F362429B4A7FC00F7D013 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		665F362529B4A7FC00F7D013 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
@@ -54,12 +56,14 @@
 		7EE186D329B4BE1800B2C34A /* RecurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceTableViewCell.swift; sourceTree = "<group>"; };
 		7EE186D529B4C11100B2C34A /* FilledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledTableViewCell.swift; sourceTree = "<group>"; };
 		7EE186D729B4CA8500B2C34A /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
+		8B9C483785EA2173AF880AAD /* Pods_Itungin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itungin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA201DA29B4739C0039687C /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		ACA201DC29B478410039687C /* SpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		ACCB5A5129ABA2DC005B9B74 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		ACCB5A5329ABA2DD005B9B74 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		ACCB5A5429ABA2DD005B9B74 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		ACCB5A5929ABA349005B9B74 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		C3115DA51E87CE4364A2A535 /* Pods-Itungin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itungin.release.xcconfig"; path = "Target Support Files/Pods-Itungin/Pods-Itungin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +71,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926B1200E289E5505E7FE162 /* Pods_Itungin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		188E6F2C531CBAC090F31194 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B9C483785EA2173AF880AAD /* Pods_Itungin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A4836DE33BF2AD8C612E2A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57248F1961C411C686F70E93 /* Pods-Itungin.debug.xcconfig */,
+				C3115DA51E87CE4364A2A535 /* Pods-Itungin.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		665F362329B4A7B700F7D013 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +120,8 @@
 			children = (
 				7E1BBE8D29A25D96002FE941 /* Itungin */,
 				7E1BBE8C29A25D96002FE941 /* Products */,
+				4A4836DE33BF2AD8C612E2A8 /* Pods */,
+				188E6F2C531CBAC090F31194 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E1BBE9F29A25D98002FE941 /* Build configuration list for PBXNativeTarget "Itungin" */;
 			buildPhases = (
+				544453AE6BA180023C398F4E /* [CP] Check Pods Manifest.lock */,
 				7E1BBE8729A25D96002FE941 /* Sources */,
 				7E1BBE8829A25D96002FE941 /* Frameworks */,
 				7E1BBE8929A25D96002FE941 /* Resources */,
+				EA09523FCCB84DE12C703D5D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,6 +262,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		544453AE6BA180023C398F4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Itungin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA09523FCCB84DE12C703D5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Itungin/Pods-Itungin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Itungin/Pods-Itungin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Itungin/Pods-Itungin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7E1BBE8729A25D96002FE941 /* Sources */ = {
@@ -394,6 +463,7 @@
 		};
 		7E1BBEA029A25D98002FE941 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57248F1961C411C686F70E93 /* Pods-Itungin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -422,6 +492,7 @@
 		};
 		7E1BBEA129A25D98002FE941 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3115DA51E87CE4364A2A535 /* Pods-Itungin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
