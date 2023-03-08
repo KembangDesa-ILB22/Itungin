@@ -139,9 +139,6 @@ class AddTransactionViewController: UIViewController {
         
         backButton.addTarget(self, action: #selector(cancelTransaction), for: .touchUpInside)
         
-        
-        
-        
         configureConstraints()
     }
     
@@ -253,8 +250,6 @@ extension AddTransactionViewController: CategorySelectionDelegate {
         self.category = category.name
         categoryTableViewCell.selectedLabel.text = category.name
     }
-    
-    
 }
 
 extension AddTransactionViewController: UITableViewDelegate, UITableViewDataSource {
