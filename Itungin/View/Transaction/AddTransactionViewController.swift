@@ -118,9 +118,9 @@ class AddTransactionViewController: UIViewController {
         formTableView.dataSource = self
         formTableView.delegate = self
         
-        categoryTableViewCell.buttonChev.addTarget(self, action: #selector(didSelectCategory), for: .touchUpInside)
+        categoryTableViewCell.buttonChev.addTarget(self, action: #selector(showCategorySelection), for: .touchUpInside)
         
-        let actionCategory = UITapGestureRecognizer(target: self, action: #selector(didSelectCategory))
+        let actionCategory = UITapGestureRecognizer(target: self, action: #selector(showCategorySelection))
         categoryTableViewCell.selectedLabel.addGestureRecognizer(actionCategory)
         categoryTableViewCell.selectedLabel.isUserInteractionEnabled = true
         
@@ -137,7 +137,16 @@ class AddTransactionViewController: UIViewController {
         
         saveButton.addTarget(self, action: #selector(saveTransaction), for: .touchUpInside)
         
+        backButton.addTarget(self, action: #selector(cancelTransaction), for: .touchUpInside)
+        
+        
+        
+        
         configureConstraints()
+    }
+    
+    @objc private func cancelTransaction() {
+        dismiss(animated: true)
     }
     
     @objc private func saveTransaction() {
@@ -182,9 +191,12 @@ class AddTransactionViewController: UIViewController {
         print(amountTableViewCell.fillTextField.text)
     }
     
-    @objc private func didSelectCategory(){
+    @objc private func showCategorySelection(){
 //        print("clicked")
         let categoryControllerSheet = CategoryViewController()
+        categoryControllerSheet.delegate = self
+        
+        
         if let presentationController = categoryControllerSheet.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]
         }
@@ -234,6 +246,15 @@ class AddTransactionViewController: UIViewController {
         NSLayoutConstraint.activate(datePickerConstrains)
         NSLayoutConstraint.activate(blurEffectViewConstraints)
     }
+}
+
+extension AddTransactionViewController: CategorySelectionDelegate {
+    func didSelectCategory(with category: CategoryItem) {
+        self.category = category.name
+        categoryTableViewCell.selectedLabel.text = category.name
+    }
+    
+    
 }
 
 extension AddTransactionViewController: UITableViewDelegate, UITableViewDataSource {

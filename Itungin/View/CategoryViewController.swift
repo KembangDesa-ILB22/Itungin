@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol CategorySelectionDelegate {
+    func didSelectCategory(with category: CategoryItem)
+}
+
+
 class CategoryViewController: UIViewController {
+    
+    var delegate: CategorySelectionDelegate?
+    
     
     private var incomeDataItem: [CategoryItem] = [
         CategoryItem(name: "Gift", color: "red", icon: "gift"),
@@ -166,9 +174,14 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         let categoryItem = typeSegmentedControl.selectedSegmentIndex == 0 ? incomeDataItem[indexPath.item] : expenseDataItem[indexPath.item]
         cell.configure(with: categoryItem)
         
-        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       let category = typeSegmentedControl.selectedSegmentIndex == 0 ? incomeDataItem[indexPath.count] : expenseDataItem[indexPath.item]
+        
+        delegate?.didSelectCategory(with: category)
+        dismiss(animated: true)
+    }
     
 }

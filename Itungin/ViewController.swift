@@ -55,6 +55,7 @@ class ViewController: UIViewController {
             print(value.recurrence)
             print(value._id)
             print(value.transaction_date)
+            print(value.category)
         }
     }
     
