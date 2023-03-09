@@ -42,5 +42,31 @@ class DatabaseManager {
         
         return datatransaction.map { $0 }
     }
+
+    func filterByCategory(category: [String]) -> [TransactionEntity] {
+        let realm = try! Realm()
+
+        let datatransaction = realm.objects(TransactionEntity.self)
+
+        let dataFiltered = datatransaction.where {
+            $0.category.in(category)
+        }.sorted(by: \TransactionEntity.amount)
+
+        return dataFiltered.map { $0 }
+    }
+
+    func sumFilterByCategory(category: [String]) -> Double {
+        let realm = try! Realm()
+
+        let datatransaction = realm.objects(TransactionEntity.self)
+
+        let keyPath: KeyPath<TransactionEntity, Double> = \TransactionEntity.amount
+
+        let dataFiltered: Double = datatransaction.where {
+            $0.category.in(category)
+        }.sum(of:keyPath)
+
+        return dataFiltered
+    }
 }
 

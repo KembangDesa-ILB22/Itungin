@@ -23,6 +23,14 @@ class ViewController: UIViewController {
         
         return button
     }()
+
+    private let filterDataButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Filter Data By Category", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
     
     private let testView = UIButton()
     
@@ -34,10 +42,13 @@ class ViewController: UIViewController {
         view.addSubview(categoryButton)
         view.addSubview(testView)
         view.addSubview(readDataButton)
+        view.addSubview(filterDataButton)
         
         categoryButton.addTarget(self, action: #selector(showCategorySheet), for: .touchUpInside)
         
         readDataButton.addTarget(self, action: #selector(readDataTransaction), for: .touchUpInside)
+
+        filterDataButton.addTarget(self, action: #selector(filterDataTransaction), for: .touchUpInside)
         
         configureConstraints()
         
@@ -57,6 +68,26 @@ class ViewController: UIViewController {
             print(value.transaction_date)
             print(value.category)
         }
+    }
+
+    @objc private func filterDataTransaction() {
+        let dbManager = DatabaseManager.shared
+
+        let transaction = dbManager.filterByCategory(category: ["Gift", "Investment"])
+
+        transaction.forEach { value in
+            print("-----------------")
+            print(value.notes)
+            print(value.amount)
+            print(value.recurrence)
+            print(value._id)
+            print(value.transaction_date)
+            print(value.category)
+        }
+
+//        let sum = dbManager.sumFilterByCategory(category: ["Gift", "Investment"])
+//
+//        print(sum)
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,9 +119,16 @@ class ViewController: UIViewController {
             readDataButton.topAnchor.constraint(equalTo: categoryButton.bottomAnchor, constant: 8),
             readDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
+
+        let filterDataButtonConstraints = [
+            filterDataButton.topAnchor.constraint(equalTo: readDataButton.bottomAnchor, constant: 8),
+            filterDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
         
         NSLayoutConstraint.activate(categoryButtonConstraints)
         NSLayoutConstraint.activate(readDataButtonConstraints)
+        NSLayoutConstraint.activate(filterDataButtonConstraints)
+
     }
 
 

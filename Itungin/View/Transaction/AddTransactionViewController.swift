@@ -66,6 +66,7 @@ class AddTransactionViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Save", for: .normal)
+        button.setTitleColor(.label, for: .normal)
         return button
     }()
     
@@ -74,6 +75,7 @@ class AddTransactionViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cancel", for: .normal)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.setTitleColor(.label, for: .normal)
         return button
     }()
     
