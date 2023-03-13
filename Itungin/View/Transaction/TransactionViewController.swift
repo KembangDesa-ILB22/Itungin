@@ -9,6 +9,8 @@ import UIKit
 
 class TransactionViewController: UIViewController {
 
+    var transactions: [TransactionEntity] = []
+    
     var searchBar: UISearchBar = {
         let search = UISearchBar()
         search.searchBarStyle = .minimal
@@ -34,6 +36,8 @@ class TransactionViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
         
         setupView()
+        loadData()
+        
     }
 
     @objc func addTapped() {
@@ -44,6 +48,13 @@ class TransactionViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
         present(ac, animated: true)
+    }
+    
+    private func loadData() {
+        self.transactions = DatabaseManager.shared.readTransaction()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     func openScanReceipt(action: UIAlertAction) {
@@ -67,13 +78,13 @@ extension TransactionViewController: UISearchBarDelegate {
 
 extension TransactionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return transactions.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.id, for: indexPath) as? ItemTableViewCell
 
-        cell?.configure()
+        cell?.configure(with: transactions[indexPath.row])
 
         return cell ?? UITableViewCell()
     }

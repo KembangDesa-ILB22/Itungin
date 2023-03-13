@@ -10,7 +10,7 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
 
     static let id = "ItemTableViewCell"
-
+    
     lazy var categoryImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
@@ -70,12 +70,13 @@ class ItemTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
     }
 
-    func configure(){
+    func configure(with model: TransactionEntity){
         categoryImage.image = UIImage(systemName: "bag.fill")
-        categoryLabel.text = "Beauty"
-        itemLabel.text = "Sunscreen"
-        dateLabel.text = Date().dateToString()
-        totalLabel.text = "- IDR 170.000"
+        categoryLabel.text = model.category
+        itemLabel.text = model.notes
+        dateLabel.text = model.transaction_date.dateToString()
+        totalLabel.text = "\(model.amount)"
+        
     } 
 }
 
