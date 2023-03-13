@@ -10,7 +10,6 @@ import UIKit
 class CategoryItemCollectionViewCell: UICollectionViewCell {
     static let identifier = "CategoryItemCollectionViewCell"
     
-    
     private lazy var itemImageView: UIImageView = {
        let imageview = UIImageView()
         imageview.translatesAutoresizingMaskIntoConstraints = false

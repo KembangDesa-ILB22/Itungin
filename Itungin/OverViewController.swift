@@ -9,6 +9,8 @@ import UIKit
 
 class OverViewController: UIViewController {
     
+    let tabBar = UITabBarController()
+    
     let balanceTotal = UIView()
     let labelBalance = UILabel()
     let totalBalance = UILabel()
@@ -36,7 +38,22 @@ class OverViewController: UIViewController {
         dateFormat()
         getNextMonth()
         getPreviousMonth()
+        tab()
+    }
+    
+    func tab(){
+        self.view.addSubview(tabBar.view)
 
+        let firstVC = UIViewController()
+        let secondVC = UIViewController()
+
+        let item1 = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+        let item2 = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
+
+        firstVC.tabBarItem = item1
+        secondVC.tabBarItem = item2
+
+        tabBar.viewControllers = [firstVC,secondVC]
     }
     
     func segmentedControl() {
@@ -63,9 +80,9 @@ class OverViewController: UIViewController {
     
     func dateFormat() {
         view.addSubview(labelDate)
-        var date = Date()
+        let date = Date()
         
-        var formatter = DateFormatter()
+        let formatter = DateFormatter()
         formatter.timeZone = .current
         formatter.locale = .current
         formatter.dateFormat = "MMMM yyyy"
@@ -177,7 +194,7 @@ class OverViewController: UIViewController {
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.layer.cornerRadius = 10
             
-        tableView.register(CategoryItemCollectionViewCell.self, forCellReuseIdentifier: "CategoryItemCollectionViewCell")
+//        tableView.register(CategoryItemCollectionViewCell.self, forCellReuseIdentifier: "CategoryItemCollectionViewCell")
             
             NSLayoutConstraint.activate([
                 tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
