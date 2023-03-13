@@ -9,6 +9,8 @@ import UIKit
 
 class AddTransactionViewController: UIViewController {
     
+    var delegate: ShowSubMenuProtocol?
+    
     private let formTableView: UITableView = {
        let tableview = UITableView()
         tableview.translatesAutoresizingMaskIntoConstraints = false
@@ -145,7 +147,9 @@ class AddTransactionViewController: UIViewController {
     }
     
     @objc private func cancelTransaction() {
+        delegate?.modalWillDismiss()
         dismiss(animated: true)
+        
     }
     
     @objc private func saveTransaction() {
@@ -159,7 +163,7 @@ class AddTransactionViewController: UIViewController {
             recurrence: recurrence,
             notes: self.notes,
             transaction_date: date)
-        
+        delegate?.modalWillDismiss()
         dismiss(animated: true)
     }
     

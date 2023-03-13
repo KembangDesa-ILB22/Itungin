@@ -7,8 +7,12 @@
 
 import UIKit
 
-class TransactionViewController: UIViewController {
+protocol ShowSubMenuProtocol {
+    func modalWillDismiss()
+}
 
+class TransactionViewController: UIViewController {
+    
     var transactions: [TransactionEntity] = []
     
     var searchBar: UISearchBar = {
@@ -66,7 +70,10 @@ class TransactionViewController: UIViewController {
     }
 
     func openManual(action: UIAlertAction) {
-        navigationController?.pushViewController(DummyViewController(), animated: true)
+        let addTransaction = AddTransactionViewController()
+        addTransaction.delegate = self
+        present(addTransaction, animated: true)
+      
     }
 }
 
@@ -96,6 +103,8 @@ extension TransactionViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+        
+    
 }
 
 extension TransactionViewController {
@@ -122,5 +131,11 @@ extension TransactionViewController {
         tableView.setLeadingAnchorConstraint(equalTo: view.leadingAnchor, constant: 15)
         tableView.setTrailingAnchorConstraint(equalTo: view.trailingAnchor, constant: -15)
         tableView.setBottomAnchorConstraint(equalTo: view.bottomAnchor)
+    }
+}
+
+extension TransactionViewController: ShowSubMenuProtocol {
+    func modalWillDismiss() {
+        loadData()
     }
 }
