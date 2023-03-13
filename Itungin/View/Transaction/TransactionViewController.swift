@@ -20,6 +20,7 @@ class TransactionViewController: UIViewController {
         search.searchBarStyle = .minimal
         search.placeholder = "Search.."
         search.sizeToFit()
+        
         return search
     }()
 
@@ -41,6 +42,7 @@ class TransactionViewController: UIViewController {
         
         setupView()
         loadData()
+
         
     }
 
@@ -79,8 +81,17 @@ class TransactionViewController: UIViewController {
 
 extension TransactionViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //search
+        print("tes")
+        if !searchText.isEmpty {
+            self.transactions.removeAll()
+            self.transactions = DatabaseManager.shared.filterBySearch(query: searchText)
+            print(self.transactions)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
+    
 }
 
 extension TransactionViewController: UITableViewDataSource, UITableViewDelegate {
@@ -139,3 +150,4 @@ extension TransactionViewController: ShowSubMenuProtocol {
         loadData()
     }
 }
+

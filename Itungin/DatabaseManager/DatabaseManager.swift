@@ -68,5 +68,16 @@ class DatabaseManager {
 
         return dataFiltered
     }
+    
+    func filterBySearch(query: String) -> [TransactionEntity] {
+        let realm = try! Realm()
+        
+        let datatransaction = realm.objects(TransactionEntity.self)
+        let dataFilter = datatransaction.where {
+            ($0.notes .like("*\(query)*") || $0.category .like("*\(query)*") )
+        }
+        
+        return dataFilter.map { $0 }
+    }
 }
 
