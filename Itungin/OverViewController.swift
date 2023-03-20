@@ -9,6 +9,8 @@ import UIKit
 
 class OverViewController: UIViewController {
     
+    var transactions: [TransactionEntity] = []
+    
     let tabBar = UITabBarController()
     
     let balanceTotal = UIView()
@@ -39,9 +41,10 @@ class OverViewController: UIViewController {
         dateFormat()
         getNextMonth()
         getPreviousMonth()
+        didChangeSegment()
         
         
-//        tab()
+        //        tab()
     }
     
     private func loadSummaryData(){
@@ -58,16 +61,16 @@ class OverViewController: UIViewController {
     
     func tab(){
         self.view.addSubview(tabBar.view)
-
+        
         let firstVC = UIViewController()
         let secondVC = UIViewController()
-
+        
         let item1 = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
         let item2 = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
-
+        
         firstVC.tabBarItem = item1
         secondVC.tabBarItem = item2
-
+        
         tabBar.viewControllers = [firstVC,secondVC]
     }
     
@@ -82,8 +85,8 @@ class OverViewController: UIViewController {
         //Change UISegmentedControl background colour
         mySegmentedControl.backgroundColor = UIColor.systemGray
         // Add function to handle Value Changed events
-//        mySegmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
-//
+        //        mySegmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
+        //
         mySegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             mySegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -91,7 +94,30 @@ class OverViewController: UIViewController {
             mySegmentedControl.widthAnchor.constraint(equalToConstant: 350),
             mySegmentedControl.heightAnchor.constraint(equalToConstant: 50),
         ])
+        
+        mySegmentedControl.addTarget(self, action: #selector(didChangeSegment), for: .valueChanged)
     }
+    
+    @objc private func didChangeSegment(){
+        let expensesCategory = ["Other"]
+        let incomeCategory = ["Investment", "Insurance", "Gift"]
+        
+        let now = Date()
+        
+        self.transactions.removeAll()
+        if mySegmentedControl.selectedSegmentIndex == 0 {
+            print("expenses")
+            self.transactions =  DatabaseManager.shared.filterByCategory(category: expensesCategory, now: now)
+        } else {
+            print("income")
+            self.transactions =  DatabaseManager.shared.filterByCategory(category: incomeCategory, now: now)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    
     
     func dateFormat() {
         view.addSubview(labelDate)
@@ -122,7 +148,7 @@ class OverViewController: UIViewController {
         buttonNext.setImage(imageNext, for: .normal)
         print("say")
         buttonNext.addTarget(self, action: #selector(buttonActionNext), for: .touchUpInside)
-
+        
         buttonNext.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             buttonNext.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant:  100),
@@ -130,21 +156,21 @@ class OverViewController: UIViewController {
             buttonNext.widthAnchor.constraint(equalToConstant: 20),
             buttonNext.heightAnchor.constraint(equalToConstant: 20),
         ])
-
         
-        }
+        
+    }
     
     @objc func buttonActionNext() {
         
     }
-                
+    
     func getPreviousMonth() {
         view.addSubview(buttonPrevious)
         let imageNext = UIImage(named: "turnright")
         buttonPrevious.setImage(imageNext, for: .normal)
         print("say1")
         buttonPrevious.addTarget(self, action: #selector(buttonActionPrevs), for: .touchUpInside)
-
+        
         buttonPrevious.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             buttonPrevious.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant:  -100),
@@ -153,89 +179,98 @@ class OverViewController: UIViewController {
             buttonPrevious.heightAnchor.constraint(equalToConstant: 20),
         ])
         
-            //        return Calendar.current.date(byAdding: .month, value: -1,  to: labelDate
-        }
+        //        return Calendar.current.date(byAdding: .month, value: -1,  to: labelDate
+    }
     
     @objc func buttonActionPrevs() {
         
     }
-
-                             
+    
+    
     func kolomBalance() {
-            balanceTotal.addSubview(labelBalance)
-            balanceTotal.addSubview(labelIdr)
-            balanceTotal.addSubview(totalBalance)
-            balanceTotal.addSubview(totalIdr)
-            
-            balanceTotal.backgroundColor = .cyan
-
-            balanceTotal.layer.cornerRadius = 10
-            balanceTotal.layer.borderWidth = 1
-            
-            labelBalance.text = "This Month Balance"
-            labelBalance.textColor = .black
-            labelBalance.frame = CGRect(x: 10, y: 10, width: 200, height: 20)
-            
-            labelIdr.textColor = .black
-            labelIdr.textAlignment = .center
-            labelIdr.font = .boldSystemFont(ofSize: 25)
-            labelIdr.frame = CGRect(x: 0, y: 70, width: 350, height: 20)
-            
-            totalBalance.text = "Total Balance"
-            totalBalance.textColor = .black
-            totalBalance.font = .systemFont(ofSize: 14)
-            totalBalance.frame = CGRect(x: 10, y: 130, width: 200, height: 20)
-            
-            totalIdr.text = "IDR \("36,000,000")"
-            totalIdr.font = .italicSystemFont(ofSize: 14)
-            totalIdr.textColor = .black
-            totalIdr.frame = CGRect(x: 230, y: 130, width: 200, height: 20)
-            
-            balanceTotal.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                balanceTotal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                balanceTotal.topAnchor.constraint(equalTo: view.topAnchor, constant: 190),
-                balanceTotal.widthAnchor.constraint(equalToConstant: 350),
-                balanceTotal.heightAnchor.constraint(equalToConstant: 160)
-            ])
-            
-        }
-                             
+        balanceTotal.addSubview(labelBalance)
+        balanceTotal.addSubview(labelIdr)
+        balanceTotal.addSubview(totalBalance)
+        balanceTotal.addSubview(totalIdr)
+        
+        balanceTotal.backgroundColor = .cyan
+        
+        balanceTotal.layer.cornerRadius = 10
+        balanceTotal.layer.borderWidth = 1
+        
+        labelBalance.text = "This Month Balance"
+        labelBalance.textColor = .black
+        labelBalance.frame = CGRect(x: 10, y: 10, width: 200, height: 20)
+        
+        labelIdr.textColor = .black
+        labelIdr.textAlignment = .center
+        labelIdr.font = .boldSystemFont(ofSize: 25)
+        labelIdr.frame = CGRect(x: 0, y: 70, width: 350, height: 20)
+        
+        totalBalance.text = "Total Balance"
+        totalBalance.textColor = .black
+        totalBalance.font = .systemFont(ofSize: 14)
+        totalBalance.frame = CGRect(x: 10, y: 130, width: 200, height: 20)
+        
+        totalIdr.text = "IDR \("36,000,000")"
+        totalIdr.font = .italicSystemFont(ofSize: 14)
+        totalIdr.textColor = .black
+        totalIdr.frame = CGRect(x: 230, y: 130, width: 200, height: 20)
+        
+        balanceTotal.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            balanceTotal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            balanceTotal.topAnchor.constraint(equalTo: view.topAnchor, constant: 190),
+            balanceTotal.widthAnchor.constraint(equalToConstant: 350),
+            balanceTotal.heightAnchor.constraint(equalToConstant: 160)
+        ])
+        
+    }
+    
     func configureTableView() {
-            view.addSubview(tableView)
-            setTableViewDelegates()
-            tableView.rowHeight = 100
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            tableView.layer.cornerRadius = 10
-            
-//        tableView.register(CategoryItemCollectionViewCell.self, forCellReuseIdentifier: "CategoryItemCollectionViewCell")
-            
-            NSLayoutConstraint.activate([
-                tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 440),
-                tableView.widthAnchor.constraint(equalToConstant: 350),
-                tableView.heightAnchor.constraint(equalToConstant: 300)
-            ])
-            
-            
-        }
-                             
+        view.addSubview(tableView)
+        setTableViewDelegates()
+        tableView.rowHeight = 100
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.layer.cornerRadius = 10
+        
+        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: ItemTableViewCell.id)
+        
+        NSLayoutConstraint.activate([
+            tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 440),
+            tableView.widthAnchor.constraint(equalToConstant: 350),
+            tableView.heightAnchor.constraint(equalToConstant: 300)
+        ])
+        
+        
+    }
+    
     func setTableViewDelegates() {
-            tableView.delegate = self
-            tableView.dataSource = self
-            
-        }
-                             }
-                             
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+}
+
 extension OverViewController: UITableViewDelegate, UITableViewDataSource {
-            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return 3
-            }
-            
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                //        let cell = tableView.dequeueReusableCell(withIdentifier: "") as! cell
-                
-                //        return cell
-                return UITableViewCell()
-            }
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return transactions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.id, for: indexPath) as? ItemTableViewCell
+        
+        cell?.configure(with: transactions[indexPath.row])
+        
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(DummyViewController(), animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+}

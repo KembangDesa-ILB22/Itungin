@@ -43,12 +43,13 @@ class DatabaseManager {
         return datatransaction.map { $0 }
     }
 
-    func filterByCategory(category: [String]) -> [TransactionEntity] {
+    func filterByCategory(category: [String], now: Date) -> [TransactionEntity] {
         let realm = try! Realm()
 
         let datatransaction = realm.objects(TransactionEntity.self)
 
         let dataFiltered = datatransaction.where {
+            $0.transaction_date.contains(createRangeMonth(now: now)) &&
             $0.category.in(category)
         }.sorted(by: \TransactionEntity.amount)
 

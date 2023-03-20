@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     @objc private func filterDataTransaction() {
         let dbManager = DatabaseManager.shared
 
-        let transaction = dbManager.filterByCategory(category: ["Gift", "Investment"])
+        let transaction = dbManager.filterByCategory(category: ["Gift", "Investment"], now: Date())
 
         transaction.forEach { value in
             print("-----------------")

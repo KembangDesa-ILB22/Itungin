@@ -42,7 +42,8 @@ class TransactionViewController: UIViewController {
         
         setupView()
         loadData()
-
+        
+        
         
     }
 
