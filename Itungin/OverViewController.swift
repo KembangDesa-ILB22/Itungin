@@ -31,6 +31,7 @@ class OverViewController: UIViewController {
         self.title = "Overview"
         
         view.addSubview(balanceTotal)
+        loadSummaryData()
         
         kolomBalance()
         segmentedControl()
@@ -38,7 +39,21 @@ class OverViewController: UIViewController {
         dateFormat()
         getNextMonth()
         getPreviousMonth()
+        
+        
 //        tab()
+    }
+    
+    private func loadSummaryData(){
+        let now = Date()
+        let income = DatabaseManager.shared.sumFilterByCategory(category: ["Investment", "Insurance", "Gift"], now: now)
+        let expense = DatabaseManager.shared.sumFilterByCategory(category: ["Other"], now: now)
+        
+        self.labelIdr.text = "IDR \(income - expense)"
+        
+        print("income \(income)")
+        print("expense \(expense)")
+        print("balance \(income - expense)")
     }
     
     func tab(){
@@ -161,7 +176,6 @@ class OverViewController: UIViewController {
             labelBalance.textColor = .black
             labelBalance.frame = CGRect(x: 10, y: 10, width: 200, height: 20)
             
-            labelIdr.text = "IDR \("6,000,000")"
             labelIdr.textColor = .black
             labelIdr.textAlignment = .center
             labelIdr.font = .boldSystemFont(ofSize: 25)
