@@ -55,7 +55,29 @@ class DatabaseManager {
         return dataFiltered.map { $0 }
     }
 
-    func sumFilterByCategory(category: [String]) -> Double {
+    func createRangeMonth(now: Date) -> ClosedRange<Date> {
+        let endDate = Date()
+        
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: endDate)
+        let month = calendar.component(.month, from: endDate)
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = 1
+        dateComponents.timeZone = TimeZone(abbreviation: "IDN")
+        dateComponents.hour = 0
+        dateComponents.minute = 0
+        dateComponents.second = 0
+
+        let newCalendar = Calendar(identifier: .gregorian)
+        let startDate = newCalendar.date(from: dateComponents) ?? Date()
+        
+        return startDate...endDate
+    }
+    
+    func sumFilterByCategory(category: [String], now: Date) -> Double {
         let realm = try! Realm()
 
         let datatransaction = realm.objects(TransactionEntity.self)
@@ -63,9 +85,10 @@ class DatabaseManager {
         let keyPath: KeyPath<TransactionEntity, Double> = \TransactionEntity.amount
 
         let dataFiltered: Double = datatransaction.where {
+            $0.transaction_date.contains(createRangeMonth(now: now)) &&
             $0.category.in(category)
         }.sum(of:keyPath)
-
+    
         return dataFiltered
     }
     

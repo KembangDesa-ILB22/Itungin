@@ -27,7 +27,7 @@ class OverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightText
+        view.backgroundColor = .systemBackground
         self.title = "Overview"
         
         view.addSubview(balanceTotal)
@@ -38,7 +38,7 @@ class OverViewController: UIViewController {
         dateFormat()
         getNextMonth()
         getPreviousMonth()
-        tab()
+//        tab()
     }
     
     func tab(){
