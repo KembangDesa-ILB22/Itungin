@@ -82,7 +82,13 @@ class TransactionViewController: UIViewController {
 extension TransactionViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("tes")
-        if !searchText.isEmpty {
+        if searchText.isEmpty {
+            self.transactions.removeAll()
+            self.transactions = DatabaseManager.shared.readTransaction()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } else {
             self.transactions.removeAll()
             self.transactions = DatabaseManager.shared.filterBySearch(query: searchText)
             print(self.transactions)
